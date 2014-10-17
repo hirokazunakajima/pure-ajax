@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<button id="submit">get json data</button>
+<div id="result"></div>
+
+<script>
+
+    document.getElementById('submit').addEventListener('click',doClick,false);
+
+    function doClick()
+    {
+        var x = new XMLHttpRequest();
+
+        x.onreadystatechange = function ()
+        {
+            if (x.readyState == 4 && x.status == 200)
+            {
+                var jsondata = JSON.parse(x.responseText);
+                var rssEntries = jsondata.items;
+                var out = '<ul>';
+
+                for(var i = 0; i < rssEntries.length; i++)
+                {
+                    out+='<li>';
+                    out+='<a href="'+rssEntries[i]+'">';
+                    out+=rssEntries[i].title+'</a>';
+                    out+='</li>';
+                }
+
+                out+='</ul>';
+                document.getElementById('result').innerHTML = out;
+            }
+            else
+            {
+//                    console.log('error');
+            }
+        };
+
+        x.open("GET", "javascriptkit.json", true);
+        x.send(null);
+    }
+
+</script>
+
+</body>
+</html>

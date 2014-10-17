@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<input id="data1" type="number">
+<input id="data2" type="number">
+<button id="submit">get multiple</button>
+<div id="result"></div>
+
+<script>
+
+    document.getElementById('submit').addEventListener('click',doClick,false);
+
+    function doClick()
+    {
+
+        var x = new XMLHttpRequest();
+
+        x.onreadystatechange = function ()
+        {
+            if (x.readyState == 4 && x.status == 200)
+            {
+                document.getElementById('result').innerHTML = x.responseText;
+            }
+            else
+            {
+//                    console.log('error');   return;
+            }
+        };
+
+        var d1 =  encodeURIComponent(document.getElementById("data1").value);
+        var d2 = encodeURIComponent(document.getElementById("data2").value);
+        var params = "?data1=" + d1 + "&data2=" + d2;
+
+        x.open("GET", "test.php"+params, true);
+        x.send(null);
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<button id="submit">get xml data</button>
+<div id="result"></div>
+
+<script>
+
+    document.getElementById('submit').addEventListener('click',doClick,false);
+
+    function doClick()
+    {
+
+        var x = new XMLHttpRequest();
+
+        x.onreadystatechange = function ()
+        {
+            if (x.readyState == 4 && x.status == 200)
+            {
+                var xmldata = x.responseXML;
+                var rssEntries = xmldata.getElementsByTagName("item");
+                var out = '<ul>';
+                for(var i = 0; i < rssEntries.length; i++)
+                {
+                    out+='<li>';
+                    out+='<a href="'+rssEntries[i].getElementsByTagName('link')[0].firstChild.nodeValue+'">';                  out+=rssEntries[i].getElementsByTagName('title')[0].firstChild.nodeValue+'</a>';
+                    out+='</li>';
+                }
+                out+='</ul>';
+                document.getElementById('result').innerHTML = out;
+            }
+            else
+            {
+//                    console.log('error');   return;
+            }
+        };
+
+        x.open("GET", "javascriptkit.xml", true);
+        x.send(null);
+    }
+
+</script>
+
+</body>
+</html>
