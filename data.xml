@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0">
+    <channel>
+        <title>hirokazunakajima.com</title>
+        <link>http://hirokazunakajima.com</link>
+        <description>Hirokazu is always thinking about creating or something interesting stuff.</description>
+        <language>en</language>
+
+        <item>
+            <title>Term2 project</title>
+            <link>http://t2.hirokazunakajima.com</link>
+            <description>Web site for Hotel. This project was for a hotel located in Tulum, Mexico. I implemented from frontend to backend including design and all of them were scratch. Handling time was one of the difficult part as I was tackling.</description>
+        </item>
+
+        <item>
+            <title>Term3 project</title>
+            <link>http://t3.hirokazunakajima.com</link>
+            <description>News portal website specialized in architecture. Since full controllable widget was required on CMS, code design became the most important one. Visual design point of view, this project was simple but backend was challenging.</description>
+        </item>
+
+        <item>
+            <title>Business project</title>
+            <link>http://tripintojapan.com</link>
+            <description>This is my own project. To connect multi things which I like and business, I built this blog. Still work in progress in terms of research, survey and building a strategy. However thinking of different perspective web is also interesting.</description>
+        </item>
+
+    </channel>
+</rss>

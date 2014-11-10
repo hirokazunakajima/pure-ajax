@@ -27,7 +27,7 @@
                 for(var i = 0; i < rssEntries.length; i++)
                 {
                     out+='<li>';
-                    out+='<a href="'+rssEntries[i].getElementsByTagName('link')[0].firstChild.nodeValue+'">';                  out+=rssEntries[i].getElementsByTagName('title')[0].firstChild.nodeValue+'</a>';
+                    out+='<a href="'+rssEntries[i].getElementsByTagName('link')[0].firstChild.nodeValue+'" target="_blank">';                  out+=rssEntries[i].getElementsByTagName('title')[0].firstChild.nodeValue+'</a>';
                     out+='</li>';
                 }
                 out+='</ul>';
@@ -35,11 +35,11 @@
             }
             else
             {
-//                    console.log('error');   return;
+                    console.log('error');   return;
             }
         };
 
-        x.open("GET", "javascriptkit.xml", true);
+        x.open("GET", "data.xml", true);
         x.send(null);
     }
 
